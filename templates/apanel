@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{{ form.csrf_token }}
+    {% if current_user.is_authenticated and form%}
+    {{message}} <br>
+    <form action="/delete-user" method="POST">
+        {% for i in users%}
+        {{i}}<br>
+        {% endfor %}
+        <P>{{form.user.label()}} {{form.user()}}</P>
+        <p>{{form.submit()}}</p>
+    </form>
+
+    {% else %}
+        <div> Вы не авторизованы</div>
+    {% endif %}
+</body>
+</html>
