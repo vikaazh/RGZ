@@ -1,0 +1,17 @@
+create table Users (
+	id serial primary key, 
+	username varchar (20),
+	email varchar (50),
+	password varchar (1000),
+	users varchar (20),
+	rule varchar (20)
+);
+
+create table operation(
+	id serial primary key,
+	operDate date,
+	userId int REFERENCES public.users(id) not null,
+	operation varchar (100),
+	operSum	numeric	
+)
+
