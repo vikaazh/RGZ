@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{{ form.csrf_token }}
+    {% if current_user.is_authenticated %}
+    <form method="GET" action="/operation">
+        <P>{{form.fromDate.label()}} {{form.fromDate()}}</P>
+        <p>{{form.endDate.label()}} {{form.endDate()}}</p>
+        <p>{{form.submit()}}</p>
+    </form>
+        {{message}} <br>
+    <form action="{{ url_for('fetch.apanel') }}" target="_blank" class="navbar-item">
+        <button >удаление пользователей</button>
+    </form>
+    {% else %}
+        <div> Вы не авторизованы</div>
+    {% endif %}
+</body>
+</html>
