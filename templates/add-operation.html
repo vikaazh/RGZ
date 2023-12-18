@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    {{ form.csrf_token }}
+    {% if current_user.is_authenticated %}
+    <form method="POST" action="/add-operation">
+        <P>{{form.operation.label()}} {{form.operation()}}</P>
+        <P>{{form.date.label()}} {{form.date()}}</P>
+        <p>{{form.opersum.label()}} {{form.opersum()}}</p>
+        <p>{{form.submit()}}</p>
+    </form>
+        {{message}}
+    {% else %}
+        <div> Вы не авторизованы</div>
+    {% endif %}
+</body>
+</html>
