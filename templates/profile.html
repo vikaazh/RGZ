@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+    {% if current_user.is_authenticated %}
+    <form action="{{ url_for('fetch.operation_post') }}" target="_blank"class="navbar-item">
+        <button >Operation</button>
+    </form><br>
+    <form action="{{ url_for('fetch.operation_add') }}" target="_blank"class="navbar-item">
+        <button >Operation add</button>
+    </form><br>
+    <form action="{{ url_for('fetch.logout') }}" target="_blank"class="navbar-item">
+        <button >Logout</button>
+    </form>
+    {% endif %}
+</body>
+</html>
